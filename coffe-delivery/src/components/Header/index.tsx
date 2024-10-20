@@ -9,13 +9,15 @@ export function Header() {
         <HeaderContainer>
             <img src={logo} alt="" />
 
-            <Location />
+            <div>
+                <Location />
 
-            <nav>
-                <NavLink to="/checkout" title="Checkout">
-                    <Cart />
-                </NavLink>
-            </nav>
+                <nav>
+                    <NavLink to="/checkout" title="Checkout">
+                        <Cart />
+                    </NavLink>
+                </nav>
+            </div>
         </HeaderContainer>
     )
 }
