@@ -1,9 +1,13 @@
 import { ConfirmButtonContainer } from "./styles"
 
-export function ConfirmButton() {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    text: string
+}
+
+export function ConfirmButton({ text, ...props }: ButtonProps) {
     return(
-        <ConfirmButtonContainer>
-            CONFIRMAR PEDIDO
+        <ConfirmButtonContainer {...props}>
+            {text}
         </ConfirmButtonContainer>
     )
 }
