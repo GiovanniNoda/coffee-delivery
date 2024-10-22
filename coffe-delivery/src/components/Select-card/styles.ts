@@ -14,7 +14,12 @@ export const SelectCardContainer = styled.button`
 
     cursor: pointer;
     border: 1px solid transparent;
-    
+
+    transition: background 0.2s;
+
+    &:hover {
+        background: ${props => props.theme['base-hover']};
+    }
 
     &.selected {
         border: 1px solid ${props => props.theme['purple']};
