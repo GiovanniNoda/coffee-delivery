@@ -1,4 +1,4 @@
-import { HomeContainer } from "./styles"
+import { CatalogContainer, HomeContainer, IconSpan } from "./styles"
 import { ShoppingCart, Package, Timer, Coffee } from "phosphor-react"
 import CoffeImage from "../../assets/image.svg"
 
@@ -7,16 +7,16 @@ export function Home() {
         <HomeContainer>
             <div className="container">
                 <div className="title-container">
-                    <h1>Encontre o café perfeito para qualquer hora do dia</h1>
+                    <h2>Encontre o café perfeito para qualquer hora do dia</h2>
 
                     <p>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
 
                     <div className="items-container">
                         <div className="two-items-container">
                             <div className="item-wrapper">
-                                <span>
+                                <IconSpan id="cart-icon">
                                     <ShoppingCart size={16} />
-                                </span>
+                                </IconSpan>
 
                                 <span>
                                     Compra simples e segura
@@ -24,34 +24,34 @@ export function Home() {
                             </div>
 
                             <div className="item-wrapper">
-                                <span>
+                                <IconSpan id="package-icon">
                                     <Package size={16} />
-                                </span>
+                                </IconSpan>
 
                                 <span>
-                                Embalagem mantém o café intacto
+                                    Embalagem mantém o café intacto
                                 </span>
                             </div>
                         </div>
 
                         <div className="two-items-container">
                             <div className="item-wrapper">
-                                <span>
+                                <IconSpan id="timer-icon">
                                     <Timer size={16} />
-                                </span>
+                                </IconSpan>
 
                                 <span>
-                                Entrega rápida e rastreada
+                                    Entrega rápida e rastreada
                                 </span>
                             </div>
 
                             <div className="item-wrapper">
-                                <span>
+                                <IconSpan id="coffee-icon">
                                     <Coffee size={16} />
-                                </span>
+                                </IconSpan>
 
                                 <span>
-                                O café chega fresquinho até você
+                                    O café chega fresquinho até você
                                 </span>
                             </div>
                         </div>
@@ -60,6 +60,12 @@ export function Home() {
 
                 <img src={CoffeImage} alt="" />
             </div>
+
+            <h3>Nossos cafés</h3>
+
+            <CatalogContainer>
+
+            </CatalogContainer>
         </HomeContainer>
     )
 }
