@@ -5,7 +5,7 @@ export const HomeContainer = styled.main`
     display: flex;
     flex-flow: column nowrap;
 
-    .container {
+    .header-container {
         background-image: radial-gradient( #a277ff53, #f1e9c983 45%, #FAFAFA 65%);
 
         display: flex;
@@ -92,8 +92,9 @@ export const HomeContainer = styled.main`
         }
     }
 
-    h3 {
+    .catalog-title {
         margin-top: 8.75rem;
+        margin-bottom: 3.375rem;
         font-family: "Baloo 2", sans-serif;
         font-size: 2rem;
         font-weight: 800;
@@ -113,8 +114,3 @@ export const IconSpan = styled.span`
     color: ${props => props.theme['background']};
 `
 
-export const CatalogContainer = styled.div`
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-`

@@ -11,6 +11,8 @@ export const CatalogProductContainer = styled.div`
     background: ${props => props.theme['base-card']};
     border-radius: 6px 36px;
 
+    margin-bottom: 2.5rem;
+
     img {
         width: 7.5rem;
         height: 7.5rem;
@@ -59,6 +61,7 @@ export const CatalogProductContainer = styled.div`
             font-size: 1.5rem;
             font-weight: 800;
             color: ${props => props.theme['base-text']};
+            margin-left: 0.25rem;
         }
     }
 

@@ -1,11 +1,13 @@
-import { CatalogContainer, HomeContainer, IconSpan } from "./styles"
+import { HomeContainer, IconSpan } from "./styles"
 import { ShoppingCart, Package, Timer, Coffee } from "phosphor-react"
 import CoffeImage from "../../assets/image.svg"
+import { Catalog } from "./components"
+
 
 export function Home() {
     return(
         <HomeContainer>
-            <div className="container">
+            <div className="header-container">
                 <div className="title-container">
                     <h2>Encontre o café perfeito para qualquer hora do dia</h2>
 
@@ -61,11 +63,9 @@ export function Home() {
                 <img src={CoffeImage} alt="" />
             </div>
 
-            <h3>Nossos cafés</h3>
+            <h3 className="catalog-title">Nossos cafés</h3>
 
-            <CatalogContainer>
-
-            </CatalogContainer>
+           <Catalog />
         </HomeContainer>
     )
 }
