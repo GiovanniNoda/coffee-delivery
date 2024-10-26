@@ -1,6 +1,22 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
-export const CatalogProductContainer = styled.div`
+export const appear = keyframes`
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+`
+
+export const CatalogProductContainer = styled.div<{ isVisible: boolean; delay: number}>`
     width: 16rem;
     display: flex;
     flex-flow: column nowrap;
@@ -12,6 +28,12 @@ export const CatalogProductContainer = styled.div`
     border-radius: 6px 36px;
 
     margin-bottom: 2.5rem;
+
+    //animation
+    opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+    transform: ${({ isVisible }) => (isVisible ? 'scale(1)' : 'scale(0.7)')};
+    animation: ${({ isVisible }) => (isVisible ? appear : 'none')} 0.6s backwards;
+    animation-delay: ${({ delay }) => `${delay}s`};
 
     img {
         width: 7.5rem;
@@ -71,3 +93,4 @@ export const CatalogProductContainer = styled.div`
         gap: 0.5rem;
     }
 `
+

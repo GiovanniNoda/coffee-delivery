@@ -1,6 +1,7 @@
 import { CartButton } from "../Cart-button"
 import { InputNumber } from "../Input-number"
 import { CatalogProductContainer } from "./styles"
+import { useEffect, useRef, useState } from "react"
 
 interface CatalogProductProps extends React.HTMLAttributes<HTMLDivElement> {
     src: string
@@ -9,12 +10,34 @@ interface CatalogProductProps extends React.HTMLAttributes<HTMLDivElement> {
     nameCoffee: string
     coffeeDescription: string
     price: string
+    delay: number
 }
 
-export function CatalogProduct ({ src, alt, children, nameCoffee, coffeeDescription, price, ...props }: CatalogProductProps) {
+export function CatalogProduct ({ src, alt, children, nameCoffee, coffeeDescription, price, delay, ...props }: CatalogProductProps) {
+    const [isVisible, setIsVisible] = useState(false)
+    const ref = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true)
+                    observer.unobserve(entry.target)
+                }
+            },
+            { threshold: 0.2 }
+        )
+
+        if (ref.current) observer.observe(ref.current)
+            return () => observer.disconnect()
+    }, [])
+
     return(
-        <CatalogProductContainer {...props}
-        
+        <CatalogProductContainer 
+        {...props}
+        ref={ref}
+        isVisible={isVisible}
+        delay={delay}
         >
             <img src={src} alt={alt} />
 

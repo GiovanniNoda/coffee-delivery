@@ -24,7 +24,8 @@ export function Catalog() {
             nameCoffee="Expresso Tradicional"
             coffeeDescription="O tradicional café feito com água quente e grãos moídos"
             price="9,90"
-            className="animation-item"              
+            className="animation-item"     
+            delay={0.2}        
             >
                 <TypeCoffee 
                 text="tradicional"
@@ -36,7 +37,8 @@ export function Catalog() {
             nameCoffee="Expresso Americano"
             coffeeDescription="Expresso diluído, menos intenso que o tradicional"
             price="9,90"
-            className="animation-item"               
+            className="animation-item"     
+            delay={0.4}         
             >
                 <TypeCoffee 
                 text="tradicional"
@@ -48,7 +50,8 @@ export function Catalog() {
             nameCoffee="Expresso Cremoso"
             coffeeDescription="Café expresso tradicional com espuma cremosa"
             price="9,90"
-            className="animation-item"               
+            className="animation-item"     
+            delay={0.6}          
             >
                 <TypeCoffee 
                 text="tradicional"
@@ -60,7 +63,8 @@ export function Catalog() {
             nameCoffee="Expresso Gelado"
             coffeeDescription="Bebida preparada com café expresso e cubos de gelo"
             price="9,90"
-            className="animation-item"               
+            className="animation-item"     
+            delay={0.8}          
             >
                 <TypeCoffee 
                 text="tradicional"
@@ -74,7 +78,8 @@ export function Catalog() {
             nameCoffee="Café com Leite"
             coffeeDescription="Meio a meio de expresso tradicional com leite vaporizado"
             price="9,90"
-            className="animation-item"               
+            className="animation-item"     
+            delay={0.2}          
             >
                 <TypeCoffee 
                 text="tradicional"
@@ -88,7 +93,8 @@ export function Catalog() {
             nameCoffee="Latte"
             coffeeDescription="Uma dose de café expresso com o dobro de leite e espuma cremosa"
             price="9,90"
-            className="animation-item"               
+            className="animation-item"     
+            delay={0.4}          
             >
                 <TypeCoffee 
                 text="tradicional"
@@ -102,7 +108,8 @@ export function Catalog() {
             nameCoffee="Capuccino"
             coffeeDescription="Bebida com canela feita de doses iguais de café, leite e espuma"
             price="9,90" 
-            className="animation-item"              
+            className="animation-item"     
+            delay={0.6}         
             >
                     <TypeCoffee 
                     text="tradicional"
@@ -116,7 +123,8 @@ export function Catalog() {
             nameCoffee="Macchiato"
             coffeeDescription="Café expresso misturado com um pouco de leite quente e espuma"
             price="9,90"  
-            className="animation-item"             
+            className="animation-item"     
+            delay={0.8}        
             >
                 <TypeCoffee 
                 text="tradicional"
@@ -130,7 +138,8 @@ export function Catalog() {
             nameCoffee="Mocaccino"
             coffeeDescription="Café expresso com calda de chocolate, pouco leite e espuma"
             price="9,90"
-            className="animation-item"               
+            className="animation-item"     
+            delay={0.2}          
             >
                 <TypeCoffee 
                 text="tradicional"
@@ -144,7 +153,8 @@ export function Catalog() {
             nameCoffee="Chocolate Quente"
             coffeeDescription="Bebida feita com chocolate dissolvido no leite quente e café"
             price="9,90" 
-            className="animation-item"              
+            className="animation-item"     
+            delay={0.4}         
             >
                 <TypeCoffee 
                 text="especial"
@@ -158,7 +168,8 @@ export function Catalog() {
             nameCoffee="Cubano"
             coffeeDescription="Drink gelado de café expresso com rum, creme de leite e hortelã"
             price="9,90"  
-            className="animation-item"             
+            className="animation-item"     
+            delay={0.6}        
             >
                 <TypeCoffee 
                 text="especial"
@@ -174,7 +185,8 @@ export function Catalog() {
             nameCoffee="Havaiano"
             coffeeDescription="Bebida adocicada preparada com café e leite de coco"
             price="9,90"   
-            className="animation-item"            
+            className="animation-item"     
+            delay={0.8}       
             >
                 <TypeCoffee 
                 text="especial"
@@ -186,7 +198,8 @@ export function Catalog() {
             nameCoffee="Árabe"
             coffeeDescription="Bebida preparada com grãos de café árabe e especiarias"
             price="9,90"   
-            className="animation-item"            
+            className="animation-item"     
+            delay={0.2}       
             >
                 <TypeCoffee 
                 text="especial"
@@ -198,7 +211,8 @@ export function Catalog() {
             nameCoffee="Irlandês"
             coffeeDescription="Bebida a base de café, uísque irlandês, açúcar e chantilly"
             price="9,90" 
-            className="animation-item"              
+            className="animation-item"     
+            delay={0.4}         
             >
                 <TypeCoffee 
                 text="especial"
