@@ -1,11 +1,11 @@
 const sizes = {
-    mobile: '425',
-    tablet: '768px',
-    laptopM: '1024px',
+    mobile: '768px',
+    tablet: '1024px',
+    laptop: '1440px',
 }
 
 export const media = {
-    mobile: `@media (max-width: ${sizes.mobile})`,
-    tablet: `@media (max-width: ${sizes.tablet})`,
-    laptopM: `@media (max-width: ${sizes.laptopM})`,
+    mobile: `@media (width < ${sizes.mobile})`,
+    tablet: `@media (width < ${sizes.tablet})`,
+    laptop: `@media (width < ${sizes.laptop})`,
 }
