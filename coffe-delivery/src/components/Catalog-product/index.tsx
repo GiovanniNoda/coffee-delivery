@@ -2,7 +2,7 @@ import { CartButton } from "../Cart-button"
 import { InputNumber } from "../Input-number"
 import { CatalogProductContainer } from "./styles"
 
-interface CatalogProductProps {
+interface CatalogProductProps extends React.HTMLAttributes<HTMLDivElement> {
     src: string
     alt?:string
     children: React.ReactNode
@@ -11,9 +11,11 @@ interface CatalogProductProps {
     price: string
 }
 
-export function CatalogProduct ({ src, alt, children, nameCoffee, coffeeDescription, price }: CatalogProductProps) {
+export function CatalogProduct ({ src, alt, children, nameCoffee, coffeeDescription, price, ...props }: CatalogProductProps) {
     return(
-        <CatalogProductContainer>
+        <CatalogProductContainer {...props}
+        
+        >
             <img src={src} alt={alt} />
 
             <div className="children-container">
