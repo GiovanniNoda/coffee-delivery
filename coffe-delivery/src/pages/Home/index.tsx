@@ -64,8 +64,8 @@ export function Home() {
             </div>
 
             <h3 className="catalog-title">Nossos cafés</h3>
-
-           <Catalog />
+    
+            <Catalog />
         </HomeContainer>
     )
 }

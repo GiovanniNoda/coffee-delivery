@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { media } from "../../styles/mediaqueries"
 
 export const HomeContainer = styled.main`
     width: 100%;
@@ -62,7 +63,7 @@ export const HomeContainer = styled.main`
                         align-items: center;
 
 
-                        p {
+                        span:nth-child(2) {
                             color: ${props => props.theme['base-text']};
                             line-height: 130%;
                         }
@@ -101,6 +102,109 @@ export const HomeContainer = styled.main`
         line-height: 130%;
         color: ${props => props.theme['base-subtitle']};
     }
+
+    ${media.laptopM} {
+       
+        .header-container {
+            .title-container {
+                h2 {
+                    font-size: 2.5rem;
+                }
+
+                p {
+                    font-size: 1.125rem;
+                }
+                
+                .items-container {
+                    .two-items-container {
+                        .item-wrapper {
+                            span {
+                                font-size: 0.875rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .header-container img {
+             width: 380px;
+         }
+    }
+
+    ${media.tablet} {
+        .header-container {
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+
+            .title-container {
+                align-items: center;
+                justify-content: center;
+
+                h2 {
+                    text-align: center;
+                    font-size: 2.125rem;
+                    margin-bottom: 3rem;
+                }
+
+                p {
+                    text-align: center;
+                    font-size: 1rem;
+                    margin-bottom: 2.5rem;
+                }
+            }
+        }
+
+        .header-container img {
+             width: 300px;
+         }
+
+         .catalog-title {
+            margin-top: 6rem;
+         }
+    }
+
+    ${media.mobile} {
+        .header-container {
+            margin-top: 2rem;
+
+            .title-container {
+                h2 {
+                    font-size: 1.6rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                p {
+                    font-size: 0.875rem;
+                    max-width: 300px;
+                }
+
+                .items-container {
+                    gap: 1.5rem;
+
+                    .two-items-container {
+                        flex-flow: column nowrap;
+                        gap: 1.5rem;
+
+                        .item-wrapper {
+                            justify-content: flex-start;
+
+                            span {
+                                font-size: 0.75rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            img {
+                width: 270px;
+            }
+        }
+        .catalog-title {
+            margin-top: 4rem;
+        }
+    }
 `
 
 export const IconSpan = styled.span`
@@ -112,5 +216,9 @@ export const IconSpan = styled.span`
     border-radius: 50%;
 
     color: ${props => props.theme['background']};
+
+    ${media.mobile} {
+        padding: 6px;
+    }
 `
 

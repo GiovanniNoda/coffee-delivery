@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { media } from "../../styles/mediaqueries"
 
 export const LocationContainer = styled.span`
     display: flex;
@@ -18,5 +19,15 @@ export const LocationContainer = styled.span`
     span {
         font-size: 0.875rem;
         color: ${props => props.theme['purple-dark']};
+    }
+
+    ${media.mobile} {
+        svg {
+            width: 18px;
+        }
+
+        span {
+            font-size: 0.75rem;
+        }
     }
 `

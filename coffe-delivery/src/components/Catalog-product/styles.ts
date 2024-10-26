@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components"
+import { media } from "../../styles/mediaqueries";
 
 export const appear = keyframes`
     0% {
@@ -91,6 +92,46 @@ export const CatalogProductContainer = styled.div<{ isVisible: boolean; delay: n
         display: flex;
         flex-flow: row nowrap;
         gap: 0.5rem;
+    }
+
+    ${media.tablet} {
+        width: 14rem;
+
+        img {
+            width: 100px;
+            margin-top: -2em;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+        }
+
+        p {
+            font-size: 0.75rem;
+        }
+
+        .span-container {
+            font-size: 0.75rem;
+            .span-price {
+                font-size: 1.25rem;
+            }
+        }
+
+        .container {
+            justify-content: space-evenly;
+        }
+
+        .cart-container {
+            div {
+                width: 4rem;
+            }
+
+            button {
+                svg {
+                    width: 20px;
+                }
+            }
+        }
     }
 `
 
