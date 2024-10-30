@@ -1,18 +1,24 @@
 import { InputNumber } from "../Input-number"
 import { RemoveButton } from "../Remove-button"
 import { CartProductContainer } from "./styles"
-import tradicional from "../../assets/coffe-types-assets/tradicional.svg"
 
-export function CartProduct() {
+interface CartProductProps extends React.HTMLAttributes<HTMLDivElement>{
+    src: string
+    alt?: string
+    name: string
+    price: string
+}
+
+export function CartProduct({ src, alt, name, price, ...props }: CartProductProps) {
     return(
-        <CartProductContainer>
-            <img src={tradicional} alt="" />
+        <CartProductContainer {...props}>
+            <img src={src} alt={alt} />
 
             <div className="container">
                 <div className="content-name">
-                    <p>Expresso Tradicional</p>
+                    <p>{name}</p>
 
-                    <span>R$9,90</span>
+                    <span>R$ {price}</span>
                 </div>
 
                 <div className="content-amount">

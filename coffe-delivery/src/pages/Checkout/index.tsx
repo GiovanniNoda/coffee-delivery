@@ -1,16 +1,28 @@
+import { useState } from "react";
 import { InputForm } from "../../components/Input-form"
+import { SelectCard } from "../../components/Select-card"
 import { CheckoutContainer } from "./styles"
-import { MapPinLine } from "phosphor-react"
+import { MapPinLine, CurrencyDollar, Bank, CreditCard, Money } from "phosphor-react"
+import { CartProduct } from "../../components/Cart-product"
+import { ConfirmButton } from "../../components/Confirm-button"
+import tradicional from "../../assets/coffe-types-assets/tradicional.svg"
+import latte from "../../assets/coffe-types-assets/latte.svg"
 
 export function Checkout() {
+    const [selectedPayment, setSelectedPayment] = useState<string | null>(null);
+
+    const handleSelectPayment = (payment: string) => {
+    setSelectedPayment(payment);
+    }
+
     return(
         <CheckoutContainer>
             <form action="">
-                <h3>Complete seu pedido</h3>
+                <h2>Complete seu pedido</h2>
 
                 <fieldset className="address-form">
                     <legend>
-                        <MapPinLine /> Endereço de Entrega 
+                        <MapPinLine size={22} /> Endereço de Entrega 
                     </legend>
 
                     <p>Informe o endereço onde deseja receber seu pedido</p>
@@ -121,6 +133,77 @@ export function Checkout() {
                         </datalist>
                     </div>
                 </fieldset>
+
+                <fieldset className="payment-method">
+                    <legend>
+                        <CurrencyDollar size={22} /> Pagamento
+                    </legend>
+
+                    <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+
+                    <div>
+                        <SelectCard 
+                        icon={<CreditCard size={16} />}
+                        text="Cartão de crédito"
+                        selected={selectedPayment == 'Cartão de crédito'}
+                        onClick={() => handleSelectPayment('Cartão de crédito')}
+                        />
+
+                        <SelectCard 
+                        icon={<Bank size={16} />}
+                        text="Cartão de débito"
+                        selected={selectedPayment == 'Cartão de débito'}
+                        onClick={() => handleSelectPayment('Cartão de débito')}
+                        />
+
+                        <SelectCard 
+                        icon={<Money size={16} />}
+                        text="Dinheiro"
+                        selected={selectedPayment == 'Dinheiro'}
+                        onClick={() => handleSelectPayment('Dinheiro')}
+                        />
+                    </div>
+                </fieldset>
+                <div className="selected-coffees-container">
+                    <h2>Cafés selecionados</h2>
+
+                    <fieldset className="selected-coffees">
+                        <CartProduct 
+                        src={tradicional}
+                        name="Expresso Tradicional"
+                        price="9,90"
+                        />
+
+                        <CartProduct 
+                        src={latte}
+                        name="Latte"
+                        price="9,90"
+                        />
+
+                        <div className="total-items-container">
+                            <div className="total-items"> 
+                                <span>Total de itens</span>
+
+                                <span>R$ 29,70</span>
+                            </div>
+
+                            <div className="delivery">
+                                <span>Entrega</span>
+
+                                <span>R$ 3,50</span>
+                            </div>
+
+                            <div className="total">
+                                <span>Total</span>
+
+                                <span>R$ 33,20</span>
+                            </div>
+                        </div>
+                        <ConfirmButton
+                        text="confirmar pedido"
+                        />
+                    </fieldset>
+                </div>
             </form>
         </CheckoutContainer>
     )

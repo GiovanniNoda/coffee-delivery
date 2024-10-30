@@ -16,6 +16,7 @@ export const ConfirmButtonContainer = styled.button`
     font-size: 0.875rem;
     font-weight: 700;
     color: ${props => props.theme['white']};
+    text-transform: uppercase;
 
     transition: background 0.2s;
 
