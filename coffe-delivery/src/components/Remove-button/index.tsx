@@ -3,7 +3,7 @@ import { Trash } from "phosphor-react"
 
 export function RemoveButton() {
     return(
-        <RemoveButtonContainer>
+        <RemoveButtonContainer type="button">
             <Trash size={16} />
 
             <span>remover</span>

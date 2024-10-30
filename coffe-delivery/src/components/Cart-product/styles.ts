@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const CartProductContainer = styled.div`
-    max-width: 368px;
+    width: 368px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;

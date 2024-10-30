@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
 export const SelectCardContainer = styled.button`
-    width: 100%;
+    width: 178px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     gap: 0.75rem;
     padding: 1rem;
@@ -33,5 +33,6 @@ export const SelectCardContainer = styled.button`
     span {
         font-size: 0.75rem;
         text-transform: uppercase;
+        color: ${props => props.theme['base-text']};
     }
 `

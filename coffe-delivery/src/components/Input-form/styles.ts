@@ -13,6 +13,8 @@ export const InputFormContainer = styled.input<{widthPercentage: number}>`
 
     outline: none;
 
+    margin-bottom: 1rem;
+
     &:focus {
         border: 1px solid ${props => props.theme['yellow-dark']};
     }
