@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes } from "styled-components";
 import { media } from "../../styles/mediaqueries";
 
 export const appear = keyframes`
@@ -15,9 +15,9 @@ export const appear = keyframes`
         opacity: 1;
         transform: scale(1);
     }
-`
+`;
 
-export const CatalogProductContainer = styled.div<{ isVisible: boolean; delay: number}>`
+export const CatalogProductContainer = styled.div<{ $isVisible: boolean; $delay: number }>`
     width: 16rem;
     display: flex;
     flex-flow: column nowrap;
@@ -31,10 +31,10 @@ export const CatalogProductContainer = styled.div<{ isVisible: boolean; delay: n
     margin-bottom: 2.5rem;
 
     //animation
-    opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-    transform: ${({ isVisible }) => (isVisible ? 'scale(1)' : 'scale(0.7)')};
-    animation: ${({ isVisible }) => (isVisible ? appear : 'none')} 0.6s backwards;
-    animation-delay: ${({ delay }) => `${delay}s`};
+    opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
+    transform: ${({ $isVisible }) => ($isVisible ? 'scale(1)' : 'scale(0.7)')};
+    animation: ${({ $isVisible }) => ($isVisible ? appear : 'none')} 0.6s backwards;
+    animation-delay: ${({ $delay }) => `${$delay}s`};
 
     img {
         width: 7.5rem;
@@ -133,5 +133,5 @@ export const CatalogProductContainer = styled.div<{ isVisible: boolean; delay: n
             }
         }
     }
-`
+`;
 

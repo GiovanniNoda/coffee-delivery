@@ -1,43 +1,60 @@
-import { CartButton } from "../Cart-button"
-import { InputNumber } from "../Input-number"
-import { CatalogProductContainer } from "./styles"
-import { useEffect, useRef, useState } from "react"
+import { CartButton } from "../Cart-button";
+import { InputNumber } from "../Input-number";
+import { CatalogProductContainer } from "./styles";
+import { useEffect, useRef, useState } from "react";
 
 interface CatalogProductProps extends React.HTMLAttributes<HTMLDivElement> {
-    src: string
-    alt?:string
-    children: React.ReactNode
-    nameCoffee: string
-    coffeeDescription: string
-    price: string
-    delay: number
+    src: string;
+    alt?: string;
+    children: React.ReactNode;
+    nameCoffee: string;
+    coffeeDescription: string;
+    price: string;
+    delay: number;
 }
 
-export function CatalogProduct ({ src, alt, children, nameCoffee, coffeeDescription, price, delay, ...props }: CatalogProductProps) {
-    const [isVisible, setIsVisible] = useState(false)
-    const ref = useRef<HTMLDivElement>(null)
+export function CatalogProduct({
+    src,
+    alt,
+    children,
+    nameCoffee,
+    coffeeDescription,
+    price,
+    delay,
+    ...props
+}: CatalogProductProps) {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    setIsVisible(true)
-                    observer.unobserve(entry.target)
+                    setIsVisible(true);
+                    observer.unobserve(entry.target); // Para parar a observação após a primeira vez
                 }
             },
             { threshold: 0.2 }
-        )
+        );
 
-        if (ref.current) observer.observe(ref.current)
-            return () => observer.disconnect()
-    }, [])
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
 
-    return(
-        <CatalogProductContainer 
-        {...props}
-        ref={ref}
-        isVisible={isVisible}
-        delay={delay}
+        return () => {
+            if (ref.current) {
+                observer.unobserve(ref.current); // Remover a observação no cleanup
+            }
+            observer.disconnect(); // Desconectar o observer
+        };
+    }, []);
+
+    return (
+        <CatalogProductContainer
+            {...props}
+            ref={ref}
+            $isVisible={isVisible}
+            $delay={delay} // Corrigido para $delay
         >
             <img src={src} alt={alt} />
 
@@ -51,16 +68,15 @@ export function CatalogProduct ({ src, alt, children, nameCoffee, coffeeDescript
 
             <div className="container">
                 <span className="span-container">
-                R$
+                    R$
                     <span className="span-price">{price}</span>
                 </span>
 
                 <div className="cart-container">
                     <InputNumber />
-
                     <CartButton />
                 </div>
             </div>
         </CatalogProductContainer>
-    )
+    );
 }
