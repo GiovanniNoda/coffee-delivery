@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"
 import { InputForm } from "../../components/Input-form"
 import { SelectCard } from "../../components/Select-card"
 import { CheckoutContainer } from "./styles"
@@ -8,12 +8,70 @@ import { ConfirmButton } from "../../components/Confirm-button"
 import tradicional from "../../assets/coffe-types-assets/tradicional.svg"
 import latte from "../../assets/coffe-types-assets/latte.svg"
 
+interface Address {
+    cep: string
+    street: string
+    number: string
+    complement: string
+    neighborhood: string
+    city: string
+    state: string
+  }
+
 export function Checkout() {
     const [selectedPayment, setSelectedPayment] = useState<string | null>(null);
+
+    const [address, setAddress] = useState<Address>({
+        cep: "",
+        street: "",
+        number: "",
+        complement: "",
+        neighborhood: "",
+        city: "",
+        state: "",
+      })
 
     const handleSelectPayment = (payment: string) => {
     setSelectedPayment(payment);
     }
+
+
+  // Função para buscar o endereço ao digitar o CEP
+  const fetchAddress = async (cep: string) => {
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const data = await response.json();
+
+      if (data.erro) {
+        alert("CEP não encontrado!");
+        return;
+      }
+
+      setAddress((prev) => ({
+        ...prev,
+        street: data.logradouro,
+        neighborhood: data.bairro,
+        city: data.localidade,
+        state: data.uf,
+      }));
+    } catch (error) {
+      console.error("Erro ao buscar o CEP:", error);
+    }
+  };
+
+  // Atualiza o endereço e busca o CEP quando tem 8 dígitos
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setAddress((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    // Busca o endereço automaticamente quando o CEP tem 8 caracteres
+    if (name === "cep" && value.length === 8) {
+      fetchAddress(value);
+    }
+  };
 
     return(
         <CheckoutContainer>
@@ -30,13 +88,14 @@ export function Checkout() {
 
                         <InputForm
                         id="zip-code"
-                        name="zip-code"
+                        name="cep"
                         widthPercentage={40}
                         type="text"
                         placeholder="CEP"
-                        pattern="\d{5}-\d{3}"
-                        title="Digite o CEP no formato 00000-000"
+                        title="Digite o CEP no formato 00000000"
                         required
+                        value={address.cep}
+                        onChange={handleAddressChange}
                         />
 
                         <InputForm
@@ -47,6 +106,8 @@ export function Checkout() {
                         placeholder="Rua"
                         title="Digite o nome da Rua sem o número."
                         required
+                        value={address.street}
+                        onChange={handleAddressChange}
                         />
 
                         <div className="number-complement-container">
@@ -58,6 +119,8 @@ export function Checkout() {
                             placeholder="Número"
                             title="Digite o número da rua."
                             required
+                            value={address.number}
+                            onChange={handleAddressChange}
                             />
 
                             <InputForm
@@ -67,6 +130,8 @@ export function Checkout() {
                             type="text"
                             placeholder="Complemento"
                             title="Digite o complemento de sua residência."
+                            value={address.complement}
+                            onChange={handleAddressChange}
                             />
                         </div>
 
@@ -79,6 +144,8 @@ export function Checkout() {
                             placeholder="Bairro"
                             title="Digite o bairro de seu endereço."
                             required
+                            value={address.neighborhood}
+                            onChange={handleAddressChange}
                             />
 
                             <InputForm
@@ -89,6 +156,8 @@ export function Checkout() {
                             placeholder="Cidade"
                             title="Digite o nome de sua cidade."
                             required
+                            value={address.city}
+                            onChange={handleAddressChange}
                             />
 
                             <InputForm
@@ -101,6 +170,8 @@ export function Checkout() {
                             title="Selecione seu Estado. (EX: SP)"
                             required
                             pattern="[A-Z]{2}"
+                            value={address.state}
+                            onChange={handleAddressChange}
                             />
 
                             <datalist id="state-list">
