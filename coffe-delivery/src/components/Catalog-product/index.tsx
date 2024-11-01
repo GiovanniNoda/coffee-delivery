@@ -11,6 +11,7 @@ interface CatalogProductProps extends React.HTMLAttributes<HTMLDivElement> {
     coffeeDescription: string;
     price: string;
     delay: number;
+    addToCart: () => void
 }
 
 export function CatalogProduct({
@@ -21,6 +22,7 @@ export function CatalogProduct({
     coffeeDescription,
     price,
     delay,
+    addToCart,
     ...props
 }: CatalogProductProps) {
     const [isVisible, setIsVisible] = useState(false);
@@ -74,7 +76,7 @@ export function CatalogProduct({
 
                 <div className="cart-container">
                     <InputNumber />
-                    <CartButton />
+                    <CartButton onClick={addToCart} />
                 </div>
             </div>
         </CatalogProductContainer>
