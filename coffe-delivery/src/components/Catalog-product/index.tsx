@@ -11,9 +11,10 @@ interface CatalogProductProps extends React.HTMLAttributes<HTMLDivElement> {
     coffeeDescription: string
     price: string
     delay: number
+    onAddToCart: () => void
 }
 
-export function CatalogProduct ({ src, alt, children, nameCoffee, coffeeDescription, price, delay, ...props }: CatalogProductProps) {
+export function CatalogProduct ({ src, alt, children, nameCoffee, coffeeDescription, price, delay, onAddToCart, ...props }: CatalogProductProps) {
     const [isVisible, setIsVisible] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
 
@@ -31,6 +32,10 @@ export function CatalogProduct ({ src, alt, children, nameCoffee, coffeeDescript
         if (ref.current) observer.observe(ref.current)
             return () => observer.disconnect()
     }, [])
+
+    const handleAddToCart = () => {
+        onAddToCart()
+    }
 
     return(
         <CatalogProductContainer 
@@ -58,7 +63,7 @@ export function CatalogProduct ({ src, alt, children, nameCoffee, coffeeDescript
                 <div className="cart-container">
                     <InputNumber />
 
-                    <CartButton />
+                    <CartButton onClick={handleAddToCart} />
                 </div>
             </div>
         </CatalogProductContainer>

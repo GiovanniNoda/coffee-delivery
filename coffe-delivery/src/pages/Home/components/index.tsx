@@ -16,8 +16,10 @@ import cubano from "../../../assets/coffe-types-assets/cubano.svg"
 import havaiano from "../../../assets/coffe-types-assets/havaiano.svg"
 import arabe from "../../../assets/coffe-types-assets/arabe.svg"
 import irlandes from "../../../assets/coffe-types-assets/irlandes.svg"
+import { useCart } from "../../../hooks/usecart"
 
 export function Catalog() {
+    const { cartCount, incrementCart } = useCart()
     const [delayValues, setDelayValues] = useState<number[]>([]);
 
     useEffect(() => {
@@ -131,6 +133,7 @@ export function Catalog() {
 
     return (
         <CatalogContainer>
+            <h2>Carrinho: {cartCount} itens</h2>
             {products.map((product, index) => (
                 <CatalogProduct
                     key={index}
@@ -139,7 +142,8 @@ export function Catalog() {
                     coffeeDescription={product.coffeeDescription}
                     price={product.price}
                     className="animation-item"
-                    delay={delayValues[index % delayValues.length] || 0} // Repetir os valores de delay
+                    delay={delayValues[index % delayValues.length] || 0}
+                    onAddToCart={incrementCart}
                 >
                     <TypeCoffee 
                         text={index < 10 ? "tradicional" : "especial"} // Ajustar texto conforme o índice
