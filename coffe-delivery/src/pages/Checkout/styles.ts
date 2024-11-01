@@ -81,5 +81,49 @@ export const CheckoutContainer = styled.main`
                 }
             }
         }
+
+        .selected-coffees-container {
+            #selected-coffees {
+                display: flex;
+                flex-flow: column nowrap;
+                gap: 1.5rem;
+
+                border-radius: 6px 44px;
+
+                .total-items-container {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    gap: 0.75rem;
+
+                    .total-items, .delivery, .total {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: space-between;
+                    }
+
+                    .total-items, .delivery {
+                        .description {
+                            font-size: 0.875rem;
+                            line-height: 130%;
+                            color: ${props => props.theme['base-text']};
+                        }
+
+                        .price {
+                            line-height: 130%;
+                            color: ${props => props.theme['base-text']};
+                        }
+                    }
+
+                    .total {
+                        strong {
+                            font-size: 1.25rem;
+                            font-weight: 700;
+                            line-height: 130%;
+                            color: ${props => props.theme['base-subtitle']};
+                        }
+                    }
+                }
+            }
+        }
     }
 `

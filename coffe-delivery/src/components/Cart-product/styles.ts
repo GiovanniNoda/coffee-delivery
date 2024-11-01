@@ -7,7 +7,9 @@ export const CartProductContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 1.25rem;
-    padding: 0.5rem 0.25rem;
+    padding: 0.5rem 0.25rem 2rem;
+
+    border-bottom: 1px solid ${props => props.theme['base-button']};
 
     background: ${props => props.theme['base-card']};
 

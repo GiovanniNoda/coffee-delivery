@@ -183,21 +183,21 @@ export function Checkout() {
 
                         <div className="total-items-container">
                             <div className="total-items"> 
-                                <span>Total de itens</span>
+                                <span className="description">Total de itens</span>
 
-                                <span>R$ 29,70</span>
+                                <span className="price">R$ 29,70</span>
                             </div>
 
                             <div className="delivery">
-                                <span>Entrega</span>
+                                <span className="description">Entrega</span>
 
-                                <span>R$ 3,50</span>
+                                <span className="price">R$ 3,50</span>
                             </div>
 
                             <div className="total">
-                                <span>Total</span>
+                                <strong>Total</strong>
 
-                                <span>R$ 33,20</span>
+                                <strong>R$ 33,20</strong>
                             </div>
                         </div>
                         <ConfirmButton
