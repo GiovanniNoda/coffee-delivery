@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
-import { CatalogProduct } from "../../../components/Catalog-product";
-import { CatalogContainer } from "./styles";
-import { TypeCoffee } from "../../../components/Type-coffee";
-import tradicional from "../../../assets/coffe-types-assets/tradicional.svg";
-import americano from "../../../assets/coffe-types-assets/americano.svg";
-import cremoso from "../../../assets/coffe-types-assets/cremoso.svg";
-import gelado from "../../../assets/coffe-types-assets/gelado.svg";
-import cafeComLeite from "../../../assets/coffe-types-assets/cafe-com-leite.svg";
-import latte from "../../../assets/coffe-types-assets/latte.svg";
-import capuccino from "../../../assets/coffe-types-assets/capuccino.svg";
-import macchiato from "../../../assets/coffe-types-assets/macchiato.svg";
-import mocaccino from "../../../assets/coffe-types-assets/mocaccino.svg";
-import chocolateQuente from "../../../assets/coffe-types-assets/chocolate-quente.svg";
-import cubano from "../../../assets/coffe-types-assets/cubano.svg";
-import havaiano from "../../../assets/coffe-types-assets/havaiano.svg";
-import arabe from "../../../assets/coffe-types-assets/arabe.svg";
-import irlandes from "../../../assets/coffe-types-assets/irlandes.svg";
+import { useEffect, useState } from "react"
+import { CatalogProduct } from "../../../components/Catalog-product"
+import { CatalogContainer } from "./styles"
+import { TypeCoffee } from "../../../components/Type-coffee"
+import tradicional from "../../../assets/coffe-types-assets/tradicional.svg"
+import americano from "../../../assets/coffe-types-assets/americano.svg"
+import cremoso from "../../../assets/coffe-types-assets/cremoso.svg"
+import gelado from "../../../assets/coffe-types-assets/gelado.svg"
+import cafeComLeite from "../../../assets/coffe-types-assets/cafe-com-leite.svg"
+import latte from "../../../assets/coffe-types-assets/latte.svg"
+import capuccino from "../../../assets/coffe-types-assets/capuccino.svg"
+import macchiato from "../../../assets/coffe-types-assets/macchiato.svg"
+import mocaccino from "../../../assets/coffe-types-assets/mocaccino.svg"
+import chocolateQuente from "../../../assets/coffe-types-assets/chocolate-quente.svg"
+import cubano from "../../../assets/coffe-types-assets/cubano.svg"
+import havaiano from "../../../assets/coffe-types-assets/havaiano.svg"
+import arabe from "../../../assets/coffe-types-assets/arabe.svg"
+import irlandes from "../../../assets/coffe-types-assets/irlandes.svg"
 
 interface CoffeeProduct {
     src: string;
@@ -26,30 +26,35 @@ interface CoffeeProduct {
 
 interface CatalogProps {
     onAddToCart: (product: CoffeeProduct) => void;
-}
+  }
+
 
 export function Catalog({ onAddToCart }: CatalogProps) {
     const [delayValues, setDelayValues] = useState<number[]>([]);
 
+    const [cartItems, setCartItems] = useState<CoffeeProduct[]>([])
+
     useEffect(() => {
         const updateDelays = () => {
-            const width = window.innerWidth;
-            if (width >= 1440) {
-                setDelayValues([0.2, 0.4, 0.6, 0.8]);
-            } else if (width >= 1024) {
-                setDelayValues([0.2, 0.4, 0.6]);
-            } else if (width >= 768) {
-                setDelayValues([0.2, 0.4]);
+            const width = window.innerWidth
+
+            // Define delays based on the viewport width
+            if (width >= 1440) { 
+                setDelayValues([0.2, 0.4, 0.6, 0.8])
+            } else if (width >= 1024) { 
+                setDelayValues([0.2, 0.4, 0.6])
+            } else if (width >= 768) { 
+                setDelayValues([0.2, 0.4])
             } else {
-                setDelayValues([0.2]);
+                setDelayValues([0.2])
             }
         };
 
-        updateDelays();
-        window.addEventListener("resize", updateDelays);
+        updateDelays()
+        window.addEventListener("resize", updateDelays)
         
-        return () => window.removeEventListener("resize", updateDelays);
-    }, []);
+        return () => window.removeEventListener("resize", updateDelays)
+    }, [])
 
     const products: CoffeeProduct[] = [
         {
@@ -138,18 +143,23 @@ export function Catalog({ onAddToCart }: CatalogProps) {
         },
     ];
 
+    function handleAddToCart(product: CoffeeProduct) {
+        console.log("Produto adicionado", product)
+        setCartItems((prevItems) => [...prevItems, product])
+    }
+
     return (
         <CatalogContainer>
             {products.map((product, index) => (
                 <CatalogProduct
-                    key={index}
-                    src={product.src}
-                    nameCoffee={product.nameCoffee}
-                    coffeeDescription={product.coffeeDescription}
-                    price={product.price}
-                    className="animation-item"
-                    delay={delayValues[index % delayValues.length] || 0}
-                    addToCart={() => onAddToCart(product)} 
+                key={index}
+                src={product.src}
+                nameCoffee={product.nameCoffee}
+                coffeeDescription={product.coffeeDescription}
+                price={product.price}
+                className="animation-item"
+                delay={delayValues[index % delayValues.length] || 0}
+                addToCart={() => handleAddToCart(product)}
                 >
                     <TypeCoffee 
                         text={index < 10 ? "tradicional" : "especial"} // Ajustar texto conforme o índice
