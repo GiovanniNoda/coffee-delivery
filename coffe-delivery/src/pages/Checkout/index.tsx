@@ -7,6 +7,7 @@ import { CartProduct } from "../../components/Cart-product"
 import { ConfirmButton } from "../../components/Confirm-button"
 import tradicional from "../../assets/coffe-types-assets/tradicional.svg"
 import latte from "../../assets/coffe-types-assets/latte.svg"
+import { NavLink } from "react-router-dom"
 
 interface Address {
     cep: string
@@ -264,10 +265,12 @@ export function Checkout() {
                                 <strong>R$ 33,20</strong>
                             </div>
                         </div>
-                        <ConfirmButton
-                        text="confirmar pedido"
-                        type="submit"
-                        />
+                        <NavLink to="/sucess" title="Sucess">
+                            <ConfirmButton
+                            text="confirmar pedido"
+                            type="submit"
+                            />
+                        </NavLink>
                     </div>
                 </div>
             </form>
