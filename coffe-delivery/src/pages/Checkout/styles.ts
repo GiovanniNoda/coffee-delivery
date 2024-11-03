@@ -63,9 +63,37 @@ export const CheckoutContainer = styled.main`
                     }
                 }
 
+                #zip-code {
+                    width: 40%;
+                }
+
                 .number-complement-container, .city-state-container {
                     display: flex;
                     gap: 0.75rem;
+                }
+
+                .number-complement-container {
+                    #number {
+                        width: 40%;
+                    }
+
+                    #complement {
+                        width: 60%;
+                    }
+                }
+
+                .city-state-container {
+                    #neighborhood {
+                        width: 40%;
+                    }
+
+                    #city {
+                        width: 45%;
+                    }
+
+                    #state {
+                        width: 15%;
+                    }
                 }
             }
 
@@ -152,6 +180,48 @@ export const CheckoutContainer = styled.main`
 
             .address-paymanet-container {
                 width: 100%;
+
+                #address-form {
+                    #zip-code {
+                        width: 100%;
+                    }
+
+                    .number-complement-container {
+                        flex-flow: column nowrap;
+
+                        #number {
+                            width: 100%;
+                        }
+
+                        #complement {
+                            width: 100%;
+                        }
+                    }
+
+                    .city-state-container {
+                        flex-flow: column nowrap;
+
+                        #neighborhood {
+                            width: 100%;
+                        }
+
+                        #city {
+                            width: 100%;
+                        }
+
+                        #state {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                #payment-method {
+
+                    .select-card-container {
+                        flex-flow: column nowrap;
+                        align-items: center;
+                    }
+                }
             }
             
             .selected-coffees-container {
@@ -159,6 +229,29 @@ export const CheckoutContainer = styled.main`
 
                 h2 {
                    margin-left: 0;
+                }
+
+                #selected-coffees {
+                    padding: 1.5rem 0.875rem;
+
+
+                    .total-items-container {
+                        .total-items, .delivery  {
+                            .description {
+                                font-size: 0.775rem;
+                            }
+
+                            .price {
+                                font-size: 0.875rem;
+                            }
+                        }
+
+                        .total {
+                            strong {
+                                font-size: 1rem;
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -1,11 +1,7 @@
 import styled from "styled-components"
 
-interface InputFormContainerProps {
-    $widthPercentage: number;
-  }
-
-export const InputFormContainer = styled.input<InputFormContainerProps>`
-    width: ${({ $widthPercentage }) => `${$widthPercentage}%`};
+export const InputFormContainer = styled.input`
+    width: 100%;
     padding: 0.75rem;
     border: 1px solid ${props => props.theme['base-button']};
     background: ${props => props.theme['base-input']};

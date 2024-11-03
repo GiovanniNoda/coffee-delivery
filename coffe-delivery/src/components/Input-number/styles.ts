@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { media } from "../../styles/mediaQueries"
 
 export const InputNumberContainer = styled.div`
     width: 4.5rem;
@@ -27,5 +28,19 @@ export const InputNumberContainer = styled.div`
         all: unset;
         cursor: pointer;
         color: ${props => props.theme['purple-dark']};
+        font-size: 14px;
+    }
+
+    ${media.mobile} {
+        width: 3.5rem;
+        padding: 0.25rem;
+
+        input {
+            font-size: 0.75rem;
+        }
+
+        button {
+            font-size: 12px;
+        }
     }
 `

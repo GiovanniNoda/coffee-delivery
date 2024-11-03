@@ -16,13 +16,13 @@ export function InputNumber() {
     return(
         <InputNumberContainer>
             <button onClick={handleDecrement} type="button">
-                <Minus size={14} />
+                <Minus />
             </button>
 
             <input type="number" min={1} value={value} readOnly />
 
             <button onClick={handleIncrement} type="button">
-                <Plus size={14} />
+                <Plus />
             </button>
         </InputNumberContainer>
     )

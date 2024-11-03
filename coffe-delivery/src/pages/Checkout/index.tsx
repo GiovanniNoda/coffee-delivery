@@ -89,7 +89,6 @@ export function Checkout() {
                         <InputForm
                         id="zip-code"
                         name="cep"
-                        widthPercentage={40}
                         type="text"
                         placeholder="CEP"
                         title="Digite o CEP no formato 00000000"
@@ -101,7 +100,6 @@ export function Checkout() {
                         <InputForm
                         id="street"
                         name="street"
-                        widthPercentage={100}
                         type="text"
                         placeholder="Rua"
                         title="Digite o nome da Rua sem o número."
@@ -114,7 +112,6 @@ export function Checkout() {
                             <InputForm
                             id="number"
                             name="number"
-                            widthPercentage={42}
                             type="number"
                             placeholder="Número"
                             title="Digite o número da rua."
@@ -126,7 +123,6 @@ export function Checkout() {
                             <InputForm
                             id="complement"
                             name="complement"
-                            widthPercentage={60}
                             type="text"
                             placeholder="Complemento"
                             title="Digite o complemento de sua residência."
@@ -139,7 +135,6 @@ export function Checkout() {
                             <InputForm
                             id="neighborhood"
                             name="neighborhood"
-                            widthPercentage={44}
                             type="text"
                             placeholder="Bairro"
                             title="Digite o bairro de seu endereço."
@@ -151,7 +146,6 @@ export function Checkout() {
                             <InputForm
                             id="city"
                             name="city"
-                            widthPercentage={45}
                             type="text"
                             placeholder="Cidade"
                             title="Digite o nome de sua cidade."
@@ -164,7 +158,6 @@ export function Checkout() {
                             id="state"
                             name="state"
                             list="state-list"
-                            widthPercentage={15}
                             type="text"
                             placeholder="UF"
                             title="Selecione seu Estado. (EX: SP)"

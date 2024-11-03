@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { media } from "../../styles/mediaQueries"
 
 export const CartProductContainer = styled.div`
     width: 368px;
@@ -45,5 +46,24 @@ export const CartProductContainer = styled.div`
         display: flex;
         flex-flow: row nowrap;
         gap: 0.5rem;
+    }
+
+    ${media.mobile} {
+        width: 100%;
+        padding: 0rem 0rem 2rem;
+
+        img {
+            width: 56px;
+        }
+
+        .content-name {
+            p {
+                font-size: 0.75rem;
+            }
+
+            span {
+                font-size: 0.75rem;
+            }
+        }
     }
 `

@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { media } from "../../styles/mediaQueries"
 
 export const RemoveButtonContainer = styled.button`
     display: flex;
@@ -21,10 +22,21 @@ export const RemoveButtonContainer = styled.button`
 
     svg{
         color: ${props => props.theme['purple']};
+        font-size: 16px;
     }
 
     span{
         font-size: 0.75rem;
         text-transform: uppercase;
+    }
+
+    ${media.mobile} {
+        svg {
+            font-size: 14px;
+        }
+
+        span {
+            font-size: 0.625rem;
+        }
     }
 `
