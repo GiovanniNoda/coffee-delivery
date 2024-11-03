@@ -19,6 +19,9 @@ export const InputFormContainer = styled.input<InputFormContainerProps>`
 
     margin-bottom: 1rem;
 
+    display: flex;
+    flex-shrink: 1;
+
     &:focus {
         border: 1px solid ${props => props.theme['yellow-dark']};
     }

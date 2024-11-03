@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { media } from "../../styles/mediaqueries"
+import { media } from "../../styles/mediaQueries"
 
 export const HomeContainer = styled.main`
     width: 100%;

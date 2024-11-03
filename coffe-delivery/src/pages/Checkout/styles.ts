@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { media } from "../../styles/mediaQueries"
 
 export const CheckoutContainer = styled.main`
     width: 100%;
@@ -51,6 +52,8 @@ export const CheckoutContainer = styled.main`
             #address-form, #payment-method {
                 max-width: 640px;
                 margin-bottom: 0.75rem;
+                display: flex;
+                flex-flow: column nowrap;
             }
 
             #address-form {
@@ -87,6 +90,7 @@ export const CheckoutContainer = styled.main`
                 display: flex;
                 flex-flow: column nowrap;
                 gap: 1.5rem;
+                max-width: 448px;
 
                 border-radius: 6px 44px;
 
@@ -126,4 +130,37 @@ export const CheckoutContainer = styled.main`
             }
         }
     }
+
+    ${media.laptopM} {
+        form {
+            flex-flow: column nowrap;
+            gap: 3rem;
+            align-items: center;
+
+            .selected-coffees-container {
+                h2 {
+                    margin-left: -6.2rem;
+                }
+            }
+        }
+    }
+
+    ${media.mobile} {
+        form {
+            justify-content: center;
+            align-items: center;
+
+            .address-paymanet-container {
+                width: 100%;
+            }
+            
+            .selected-coffees-container {
+                width: 100%;
+
+                h2 {
+                   margin-left: 0;
+                }
+            }
+        }
+    }   
 `
