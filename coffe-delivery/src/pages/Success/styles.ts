@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { media } from "../../styles/mediaQueries"
 
 export const SuccessContainer = styled.main`
     width: 100%;
@@ -95,5 +96,91 @@ export const SuccessContainer = styled.main`
         height: 293px;
         flex-shrink: 0;
         margin-top: 11.25rem;
+    }
+
+    ${media.laptopM} {
+        gap: 5rem;
+
+        .container {
+            .text-container {
+                .success-message {
+                    font-size: 1.8rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+            }
+
+            .informations-container {
+                max-width: 450px;
+
+                .information-wrapper {
+                    .icon-container {
+                        padding: 0.3rem;
+                    }
+
+                    .text-wrapper {
+                        p, strong {
+                            font-size: 0.875rem;
+                        }
+                    }
+                }                
+            }
+        }
+
+        img {
+            width: 394px;
+            height: 234px;
+        }
+    }
+
+    ${media.tablet} {
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 3rem;
+
+        margin-bottom: 5rem;
+
+        .container {
+            margin-top: 2.5rem;
+        }
+
+        img {
+            margin-top: 0;
+        }
+    }
+
+    ${media.mobile} {
+        .container {
+            margin-top: 1.5rem;
+
+            .text-container {
+                .success-message {
+                    font-size: 1.5rem;
+                }
+
+                p {
+                    font-size: 0.875rem;
+                }
+            }
+
+            .informations-container {
+                padding: 1.5rem;
+
+                .information-wrapper {
+                    .text-wrapper {
+                        p, strong {
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        img {
+            width: 246px;
+            height: 146px;
+        }
     }
 `
