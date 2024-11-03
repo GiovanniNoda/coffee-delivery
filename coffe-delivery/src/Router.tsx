@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import { Home } from "./pages/Home"
 import { Checkout } from "./pages/Checkout"
-import { Sucess } from "./pages/Sucess"
+import { Success } from "./pages/Success"
 import { DefaultLayout } from "./layouts/DefaultLayout"
 
 export function Router() {
@@ -12,7 +12,7 @@ export function Router() {
 
                 <Route path="/checkout" element={<Checkout />} />
 
-                <Route path="/sucess" element={<Sucess />} />
+                <Route path="/success" element={<Success />} />
             </Route>
         </Routes>
     )

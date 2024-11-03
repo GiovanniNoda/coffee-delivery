@@ -25,7 +25,7 @@ interface CoffeeProduct {
 }
 
 interface CatalogProps {
-    onAddToCart: (product: CoffeeProduct) => void;
+    onAddToCart?: (product: CoffeeProduct) => void;
   }
 
 

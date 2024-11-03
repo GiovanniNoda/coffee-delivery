@@ -265,7 +265,7 @@ export function Checkout() {
                                 <strong>R$ 33,20</strong>
                             </div>
                         </div>
-                        <NavLink to="/sucess" title="Sucess">
+                        <NavLink to="/success" title="Success">
                             <ConfirmButton
                             text="confirmar pedido"
                             type="submit"
