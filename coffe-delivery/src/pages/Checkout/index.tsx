@@ -7,7 +7,7 @@ import { CartProduct } from "../../components/Cart-product"
 import { ConfirmButton } from "../../components/Confirm-button"
 import tradicional from "../../assets/coffe-types-assets/tradicional.svg"
 import latte from "../../assets/coffe-types-assets/latte.svg"
-import { NavLink } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 interface Address {
     cep: string
@@ -74,9 +74,24 @@ export function Checkout() {
     }
   };
 
+  // Verifica se o formulário está válido para poder avançar de página
+  const navigate = useNavigate()
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const form = event.currentTarget
+
+    if (form.checkValidity()) {
+      navigate('/success')
+    } else {
+      form.reportValidity()
+    }
+  }
+
     return(
         <CheckoutContainer>
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
                 <div className="address-paymanet-container">
                     <h2>Complete seu pedido</h2>
 
@@ -265,12 +280,11 @@ export function Checkout() {
                                 <strong>R$ 33,20</strong>
                             </div>
                         </div>
-                        <NavLink to="/success" title="Success">
-                            <ConfirmButton
-                            text="confirmar pedido"
-                            type="submit"
-                            />
-                        </NavLink>
+                        
+                        <ConfirmButton
+                        text="confirmar pedido"
+                        type="submit"
+                        />
                     </div>
                 </div>
             </form>

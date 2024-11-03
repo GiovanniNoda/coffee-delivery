@@ -155,10 +155,6 @@ export const CheckoutContainer = styled.main`
                         }
                     }
                 }
-
-                a {
-                    text-decoration: none;
-                }
             }
         }
     }
