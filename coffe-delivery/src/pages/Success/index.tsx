@@ -1,8 +1,22 @@
 import { SuccessContainer } from "./styles"
 import image from "../../assets/Illustration.png"
 import { MapPin, Timer, CurrencyDollar } from "phosphor-react"
+import { useLocation } from "react-router-dom"
+
+interface Address {
+    cep: string
+    street: string
+    number: string
+    complement: string
+    neighborhood: string
+    city: string
+    state: string
+}
 
 export function Success() {
+    const location = useLocation()
+    const { address, selectedPayment } = location.state as { address: Address; selectedPayment: string }
+
    return(
         <SuccessContainer>
             <div className="container">
@@ -19,9 +33,9 @@ export function Success() {
                         </span>
 
                         <div className="text-wrapper">
-                            <p>Entrega em <strong className="street">Rua João Daniel Martinelli</strong>, <span className="number">102</span></p>
+                            <p>Entrega em <strong className="street">{address.street}</strong>,{" "}<span className="number">{address.number}</span></p>
 
-                            <p><span className="neighborhood">Farrapos</span> - <span className="city">Porto Alegre</span>, <span className="state">RS</span></p>
+                            <p><span className="neighborhood">{address.neighborhood}</span> -{" "}<span className="city">{address.city}</span>,{" "}<span className="state">{address.state}</span></p>
                         </div>
                     </div>
 
@@ -45,7 +59,7 @@ export function Success() {
                         <div className="text-wrapper">
                             <p>Pagamento na entrega</p>
 
-                            <strong className="payment-method">Cartão de Crédito</strong>
+                            <strong className="payment-method">{selectedPayment}</strong>
                         </div>
                     </div>
                 </div>

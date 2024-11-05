@@ -82,8 +82,13 @@ export function Checkout() {
 
     const form = event.currentTarget
 
+    if (!selectedPayment) {
+      alert("Por favor, selecione uma forma de pagamento.")
+      return
+    }
+
     if (form.checkValidity()) {
-      navigate('/success')
+      navigate('/success', { state: { address, selectedPayment } })
     } else {
       form.reportValidity()
     }
