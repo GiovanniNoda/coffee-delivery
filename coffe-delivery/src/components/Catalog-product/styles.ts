@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { media } from "../../styles/mediaqueries";
+import { media } from "../../styles/mediaQueries";
 
 export const appear = keyframes`
     0% {

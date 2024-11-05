@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { media } from "../../styles/mediaqueries"
+import { media } from "../../styles/mediaQueries"
 
 export const LayoutContainer = styled.div`
     width: 80%;
