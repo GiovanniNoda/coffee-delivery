@@ -1,22 +1,19 @@
+import { ItemData } from "../../hooks/useCart"
 import { InputNumber } from "../Input-number"
 import { RemoveButton } from "../Remove-button"
 import { CartProductContainer } from "./styles"
 
-interface CartProductProps extends React.HTMLAttributes<HTMLDivElement>{
-    src: string
-    alt?: string
-    name: string
-    price: string
-}
+type CartProductProps = ItemData
+   
 
-export function CartProduct({ src, alt, name, price, ...props }: CartProductProps) {
+export function CartProduct({ photo, title, price, ...props }: CartProductProps) {
     return(
         <CartProductContainer {...props}>
-            <img src={src} alt={alt} />
+            <img src={photo} alt={title} />
 
             <div className="container">
                 <div className="content-name">
-                    <p>{name}</p>
+                    <p>{title}</p>
 
                     <span>R$ {price}</span>
                 </div>

@@ -4,18 +4,18 @@ import { CatalogProductContainer } from "./styles";
 import { useEffect, useRef, useState } from "react";
 
 interface CatalogProductProps extends React.HTMLAttributes<HTMLDivElement> {
-    src: string;
+    photo: string;
     alt?: string;
     children: React.ReactNode;
     nameCoffee: string;
-    coffeeDescription: string;
-    price: string;
+    coffeeDescription?: string;
+    price: number;
     delay: number;
     addToCart: () => void
 }
 
 export function CatalogProduct({
-    src,
+    photo,
     alt,
     children,
     nameCoffee,
@@ -58,7 +58,7 @@ export function CatalogProduct({
             $isVisible={isVisible}
             $delay={delay} // Corrigido para $delay
         >
-            <img src={src} alt={alt} />
+            <img src={photo} alt={alt} />
 
             <div className="children-container">
                 {children}

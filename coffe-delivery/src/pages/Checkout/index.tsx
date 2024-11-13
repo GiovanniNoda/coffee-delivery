@@ -5,9 +5,9 @@ import { CheckoutContainer } from "./styles"
 import { MapPinLine, CurrencyDollar, Bank, CreditCard, Money } from "phosphor-react"
 import { CartProduct } from "../../components/Cart-product"
 import { ConfirmButton } from "../../components/Confirm-button"
-import tradicional from "../../assets/coffe-types-assets/tradicional.svg"
-import latte from "../../assets/coffe-types-assets/latte.svg"
 import { useNavigate } from "react-router-dom"
+import { useCart } from "../../hooks/useCart"
+
 
 interface Address {
     cep: string
@@ -20,6 +20,8 @@ interface Address {
   }
 
 export function Checkout() {
+    const {itemsCart} = useCart()
+
     const [selectedPayment, setSelectedPayment] = useState<string | null>(null);
 
     const [address, setAddress] = useState<Address>({
@@ -254,17 +256,15 @@ export function Checkout() {
                     <h2>Cafés selecionados</h2>
 
                     <div className="form-content" id="selected-coffees">
-                        <CartProduct 
-                        src={tradicional}
-                        name="Expresso Tradicional"
-                        price="9,90"
-                        />
-
-                        <CartProduct 
-                        src={latte}
-                        name="Latte"
-                        price="9,90"
-                        />
+                      {itemsCart?.map((product) => {
+                        return(
+                          <CartProduct 
+                            photo={product.photo}
+                            title={product.title}
+                            price={product.price}
+                          />
+                        )  
+                      })}
 
                         <div className="total-items-container">
                             <div className="total-items"> 

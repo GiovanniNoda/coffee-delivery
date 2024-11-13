@@ -2,9 +2,12 @@ import { HomeContainer, IconSpan } from "./styles"
 import { ShoppingCart, Package, Timer, Coffee } from "phosphor-react"
 import CoffeImage from "../../assets/image.svg"
 import { Catalog } from "./components"
+import { useCart } from "../../hooks/useCart"
 
 
 export function Home() {
+    const {itemsCart} = useCart()
+
     return(
         <HomeContainer>
             <div className="header-container">
