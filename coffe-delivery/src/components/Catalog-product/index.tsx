@@ -85,5 +85,5 @@ export function CatalogProduct({
                 </div>
             </div>
         </CatalogProductContainer>
-    );
+    )
 }
