@@ -51,85 +51,85 @@ export function Catalog() {
             photo: tradicional,
             title: "Expresso Tradicional",
             coffeeDescription: "O tradicional café feito com água quente e grãos moídos",
-            price: 990
+            price: 9.90
         },
         {
             photo: americano,
             title: "Expresso Americano",
             coffeeDescription: "Expresso diluído, menos intenso que o tradicional",
-            price: 990
+            price: 9.90
         },
         {
             photo: cremoso,
             title: "Expresso Cremoso",
             coffeeDescription: "Café expresso tradicional com espuma cremosa",
-            price: 990
+            price: 9.90
         },
         {
             photo: gelado,
             title: "Expresso Gelado",
             coffeeDescription: "Bebida preparada com café expresso e cubos de gelo",
-            price: 990,
+            price: 9.90,
         },
         {
             photo: cafeComLeite,
             title: "Café com Leite",
             coffeeDescription: "Meio a meio de expresso tradicional com leite vaporizado",
-            price: 990,
+            price: 9.90,
         },
         {
             photo: latte,
             title: "Latte",
             coffeeDescription: "Uma dose de café expresso com o dobro de leite e espuma cremosa",
-            price: 990,
+            price: 9.90,
         },
         {
             photo: capuccino,
             title: "Capuccino",
             coffeeDescription: "Bebida com canela feita de doses iguais de café, leite e espuma",
-            price: 990,
+            price: 9.90,
         },
         {
             photo: macchiato,
             title: "Macchiato",
             coffeeDescription: "Café expresso misturado com um pouco de leite quente e espuma",
-            price: 990,
+            price: 9.90,
         },
         {
             photo: mocaccino,
             title: "Mocaccino",
             coffeeDescription: "Café expresso com calda de chocolate, pouco leite e espuma",
-            price: 990,
+            price: 9.90,
         },
         {
             photo: chocolateQuente,
             title: "Chocolate Quente",
             coffeeDescription: "Bebida feita com chocolate dissolvido no leite quente e café",
-            price: 990,
+            price: 9.90,
         },
         {
             photo: cubano,
             title: "Cubano",
             coffeeDescription: "Drink gelado de café expresso com rum, creme de leite e hortelã",
-            price: 990,
+            price: 9.90,
         },
         {
             photo: havaiano,
             title: "Havaiano",
             coffeeDescription: "Bebida adocicada preparada com café e leite de coco",
-            price: 990,
+            price: 9.90,
         },
         {
             photo: arabe,
             title: "Árabe",
             coffeeDescription: "Bebida preparada com grãos de café árabe e especiarias",
-            price: 990,
+            price: 9.90,
         },
         {
             photo: irlandes,
             title: "Irlandês",
             coffeeDescription: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
-            price: 990,
+            price: 9.90,
         },
     ];
 
@@ -140,6 +140,7 @@ export function Catalog() {
 
         window.alert(`${product.title} adicionado ao carrinho!`)
     }
+    
 
     return (
         <CatalogContainer>
@@ -154,6 +155,7 @@ export function Catalog() {
                 delay={delayValues[index % delayValues.length] || 0}
                 addToCart={() => handleAddToCart(product)}
                 >
+            
                     <TypeCoffee 
                         text={index < 10 ? "tradicional" : "especial"} // Ajustar texto conforme o índice
                     />
@@ -163,5 +165,5 @@ export function Catalog() {
                 </CatalogProduct>
             ))}
         </CatalogContainer>
-    );
+    )
 }

@@ -51,6 +51,11 @@ export function CatalogProduct({
         };
     }, []);
 
+    
+    function formatPrice(value: number): string {
+        return value.toFixed(2).replace(".", ",")
+    }
+
     return (
         <CatalogProductContainer
             {...props}
@@ -71,7 +76,7 @@ export function CatalogProduct({
             <div className="container">
                 <span className="span-container">
                     R$
-                    <span className="span-price">{price}</span>
+                    <span className="span-price">{formatPrice(price)}</span>
                 </span>
 
                 <div className="cart-container">

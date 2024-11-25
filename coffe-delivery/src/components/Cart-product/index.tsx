@@ -9,6 +9,10 @@ interface CartProductProps extends React.HTMLAttributes<HTMLDivElement> {
     removeItemCart: () => void
 }
 
+function formatPrice(value: number): string {
+    return value.toFixed(2).replace(".", ",")
+}
+
 
 export function CartProduct({ photo, title, price, removeItemCart, ...props }: CartProductProps) {
     return(
@@ -19,7 +23,7 @@ export function CartProduct({ photo, title, price, removeItemCart, ...props }: C
                 <div className="content-name">
                     <p>{title}</p>
 
-                    <span>R$ {price}</span>
+                    <span>R$ {formatPrice(price)}</span>
                 </div>
 
                 <div className="content-amount">
