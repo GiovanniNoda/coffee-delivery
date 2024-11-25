@@ -1,9 +1,8 @@
-import { createContext, ReactNode, useContext, useState } from "react";
-import tradicional from "../assets/coffe-types-assets/tradicional.svg"
+import { createContext, ReactNode, useContext, useState } from "react"
 
 interface CartContextData {
     addItemCart: (product: ItemData) => void
-    removeItemCart: () => void
+    removeItemCart: (index: number) => void
     itemsCart: ItemData[]
 }
 
@@ -26,8 +25,8 @@ export function CartProvider({ children }: {
         setItemsCart([...itemsCart, product])
     }
 
-    function removeItemCart() {
-
+    function removeItemCart(index: number) {
+        setItemsCart(itemsCart.filter((_, i) => i !== index))
     }
 
     return (

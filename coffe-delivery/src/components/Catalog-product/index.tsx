@@ -1,7 +1,7 @@
-import { CartButton } from "../Cart-button";
-import { InputNumber } from "../Input-number";
-import { CatalogProductContainer } from "./styles";
-import { useEffect, useRef, useState } from "react";
+import { CartButton } from "../Cart-button"
+import { InputNumber } from "../Input-number"
+import { CatalogProductContainer } from "./styles"
+import { useEffect, useRef, useState } from "react"
 
 interface CatalogProductProps extends React.HTMLAttributes<HTMLDivElement> {
     photo: string;

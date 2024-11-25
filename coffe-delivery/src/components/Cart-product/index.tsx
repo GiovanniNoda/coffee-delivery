@@ -1,12 +1,16 @@
-import { ItemData } from "../../hooks/useCart"
 import { InputNumber } from "../Input-number"
 import { RemoveButton } from "../Remove-button"
 import { CartProductContainer } from "./styles"
 
-type CartProductProps = ItemData
-   
+interface CartProductProps extends React.HTMLAttributes<HTMLDivElement> {
+    photo: string
+    title: string
+    price: number
+    removeItemCart: () => void
+}
 
-export function CartProduct({ photo, title, price, ...props }: CartProductProps) {
+
+export function CartProduct({ photo, title, price, removeItemCart, ...props }: CartProductProps) {
     return(
         <CartProductContainer {...props}>
             <img src={photo} alt={title} />
@@ -21,7 +25,7 @@ export function CartProduct({ photo, title, price, ...props }: CartProductProps)
                 <div className="content-amount">
                     <InputNumber />
 
-                    <RemoveButton />
+                    <RemoveButton onClick={removeItemCart} />
                 </div>
             </div>
     </CartProductContainer>

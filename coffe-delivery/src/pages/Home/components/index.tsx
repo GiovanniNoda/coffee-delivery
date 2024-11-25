@@ -20,7 +20,7 @@ import { ItemData, useCart } from "../../../hooks/useCart"
 
 
 export function Catalog() {
-    const {addItemCart} = useCart()
+    const { addItemCart } = useCart()
 
     const [delayValues, setDelayValues] = useState<number[]>([]);
 
@@ -137,6 +137,8 @@ export function Catalog() {
         console.log("Produto adicionado", product)
 
         addItemCart(product)
+
+        window.alert(`${product.title} adicionado ao carrinho!`)
     }
 
     return (

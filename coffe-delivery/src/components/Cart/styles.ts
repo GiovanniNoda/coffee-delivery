@@ -33,3 +33,19 @@ export const CartContainer = styled.button`
         font-size: 12px; // Ajuste conforme necessário
     }
 `
+
+export const ItemCount = styled.span`
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background-color: ${props => props.theme['yellow-dark']};
+    color: ${props => props.theme['white']};
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`

@@ -20,7 +20,7 @@ interface Address {
   }
 
 export function Checkout() {
-    const {itemsCart} = useCart()
+    const { itemsCart, removeItemCart } = useCart()
 
     const [selectedPayment, setSelectedPayment] = useState<string | null>(null);
 
@@ -94,6 +94,12 @@ export function Checkout() {
     } else {
       form.reportValidity()
     }
+  }
+
+  function handleRemoveItemCart(index: number) {
+    removeItemCart(index)
+
+    window.alert("Item removido do carrinho.")
   }
 
     return(
@@ -256,12 +262,14 @@ export function Checkout() {
                     <h2>Cafés selecionados</h2>
 
                     <div className="form-content" id="selected-coffees">
-                      {itemsCart?.map((product) => {
+                      {itemsCart?.map((product, index) => {
                         return(
                           <CartProduct 
+                            key={index}
                             photo={product.photo}
                             title={product.title}
                             price={product.price}
+                            removeItemCart={() => handleRemoveItemCart(index)}
                           />
                         )  
                       })}
