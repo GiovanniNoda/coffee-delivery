@@ -1,2 +1,2 @@
-# projeto-coffee-delivery
- Projeto realizado de um desafio do curso de React da Rocketseat
+# coffee-delivery
+ Project developed using React and Typescript, this simulates a coffee sale website.
